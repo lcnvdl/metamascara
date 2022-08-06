@@ -2,19 +2,24 @@ const webpack = require('webpack');
 const path = require('path');
 
 const isProduction = process.env.NODE_ENV === 'production';
+const exportForNg = process.env.TARGET === 'module';
+
+const filename = `metamascara${(exportForNg ? '.module' : '')}${((!exportForNg && isProduction) ? '.min' : '')}.js`;
 
 const config = {
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'lib'),
-    filename: isProduction ? 'metamascara.min.js' : 'metamascara.js',
-    library: 'meta',
-    libraryTarget: 'umd',
+    filename,
+    library: {
+      name: exportForNg ? undefined : 'mmascara',
+      type: exportForNg ? 'module' : 'umd',
+    }
   },
   optimization: {
     minimize: isProduction,
   },
-  devtool: 'source-map',
+  devtool: exportForNg ? 'inline-source-map' : 'source-map',
   module: {
     rules: [
       {
@@ -23,6 +28,9 @@ const config = {
         exclude: /node_modules/
       }
     ]
+  },
+  experiments: {
+    outputModule: exportForNg,
   },
   resolve: {
     extensions: [

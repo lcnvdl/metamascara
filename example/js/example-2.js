@@ -1,5 +1,5 @@
 function metamascaraExample2() {
-  const { blockchainConnections, MetaMascaraFactory } = meta;
+  const { blockchainConnections, MetaMascaraFactory } = mmascara;
 
   window.metamascara = window.metamascara || MetaMascaraFactory.newInstance();  // Create a new metamascara instance 
 

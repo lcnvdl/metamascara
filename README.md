@@ -5,14 +5,27 @@
 ![Build Status](https://github.com/lcnvdl/metamascara/actions/workflows/ci.yml/badge.svg) ![Known Vulnerabilities](https://snyk.io/test/github/lcnvdl/metamascara/badge.svg)
 
 ## Installation
-Node
+
+CDN
+Import the script
+```html
+<script src="https://unpkg.com/mmascara/lib/metamascara.min.js"></script>
 ```
+
+Then
+```javascript
+const { MetaMascaraFactory } = mmascara;
+```
+
+ANGULAR
+Node
+```bash
 npm i --save mmascara
 ```
 
-CDN
-```
-<script src="https://unpkg.com/mmascara/lib/metamascara.min.js"></script>
+Then
+```typescript
+import { MetaMascaraFactory } from 'mmascara';
 ```
 
 ## Demo

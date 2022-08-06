@@ -1,0 +1,33 @@
+import { IAddNetworkInfo } from '../interfaces/add-network-info.interface';
+import { IMetamascaraPlugin } from '../interfaces/plugins/metamascara-plugin.interface';
+import { IBlockchainInfo } from '../interfaces/blockchain-info.interface';
+export declare class MetaMascara {
+    private web3Factory;
+    private detectEthereumProvider;
+    private accounts;
+    private selectedAccount;
+    private web3;
+    private provider;
+    private _networkId;
+    private _blockchains;
+    constructor(web3Factory: (provider: any) => any, detectEthereumProvider: () => Promise<any>);
+    get isConnected(): boolean;
+    get address(): string | null;
+    get networkId(): number;
+    get networkName(): string;
+    get blockchains(): Record<number, IBlockchainInfo>;
+    get blockchainsList(): IBlockchainInfo[];
+    connect(): Promise<boolean>;
+    addNetwork(info: IAddNetworkInfo): Promise<boolean>;
+    disconnect(): void;
+    getContract(address: string, abi: any): any;
+    getBnbBalance(address: string): Promise<import("bignumber.js").default>;
+    getNonce(addr: string): Promise<number>;
+    toHex(x: any): string;
+    toWei(value: any, unit: string): string;
+    addPlugin(plugin: IMetamascaraPlugin): void;
+    private connectProvider;
+    private disposeProvider;
+    private disposeWeb3;
+    private reload;
+}

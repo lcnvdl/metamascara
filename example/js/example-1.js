@@ -1,5 +1,5 @@
 function metamascaraExample1() {
-  const { MetaMascaraFactory } = meta;
+  const { MetaMascaraFactory } = mmascara;
 
   window.metamascara = MetaMascaraFactory.newInstance();  // Create a new metamascara instance 
 
