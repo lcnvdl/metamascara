@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run watch",
-    "build": "npm run build-dev",
+    "build": "npm run build-dev && npm run build-prod",
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development",
     "watch": "webpack --mode development --watch",
