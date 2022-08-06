@@ -3,8 +3,9 @@ import { BigNumberFactory } from '../factories/big-number-factory';
 import { IMetamascaraPlugin } from '../interfaces/plugins/metamascara-plugin.interface';
 import { IBlockchainInfo } from '../interfaces/blockchain-info.interface';
 import { IBlockchainListPlugin } from '../interfaces/plugins/blockchain-list.plugin.interface';
+import { IMetaMascara } from '../interfaces/metamascara.interface';
 
-export class MetaMascara {
+export class MetaMascara implements IMetaMascara {
   private accounts: string[] | null = null;
   private selectedAccount: string | null = null;
   private web3: any = null;
@@ -44,7 +45,7 @@ export class MetaMascara {
     return info.name;
   }
 
-  get blockchains() {
+  get blockchains(): Record<number, IBlockchainInfo> {
     return this._blockchains;
   }
 

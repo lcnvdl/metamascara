@@ -1,4 +1,6 @@
 export * from './classes/metamascara';
+export * from './classes/contracts/base-contract';
+export * from './classes/utils/bignumber.utils';
 export * from './constants/blockchain-connections';
 export * from './constants/blockchains';
 export * from './factories/big-number-factory';

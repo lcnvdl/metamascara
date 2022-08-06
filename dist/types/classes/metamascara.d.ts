@@ -1,7 +1,8 @@
 import { IAddNetworkInfo } from '../interfaces/add-network-info.interface';
 import { IMetamascaraPlugin } from '../interfaces/plugins/metamascara-plugin.interface';
 import { IBlockchainInfo } from '../interfaces/blockchain-info.interface';
-export declare class MetaMascara {
+import { IMetaMascara } from '../interfaces/metamascara.interface';
+export declare class MetaMascara implements IMetaMascara {
     private web3Factory;
     private detectEthereumProvider;
     private accounts;
