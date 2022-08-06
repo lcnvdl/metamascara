@@ -1,6 +1,6 @@
 {
   "name": "mmascara",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Object-Oriented Web3 library for Javascript and Typescript.",
   "main": "lib/metamascara.js",
   "module": "lib/metamascara.module.js",
