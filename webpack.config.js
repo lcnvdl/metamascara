@@ -1,13 +1,18 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const config = {
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'metamascara.js',
+    filename: isProduction ? 'metamascara.min.js' : 'metamascara.js',
     library: 'meta',
     libraryTarget: 'umd',
+  },
+  optimization: {
+    minimize: isProduction,
   },
   devtool: 'source-map',
   module: {

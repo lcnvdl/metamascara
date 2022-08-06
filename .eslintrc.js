@@ -43,6 +43,10 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off'
   },
   ignorePatterns: [
+    'webpack.config.js',
+    'dist/*',
+    'node_modules/*',
+    'example/*',
     'src/migrations/*.ts'
   ]
 };
