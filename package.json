@@ -1,21 +1,32 @@
 {
-  "name": "metamascara",
-  "version": "1.0.0",
-  "description": "",
+  "name": "mmascara",
+  "version": "1.0.1",
+  "description": "Object-Oriented Web3 library for Javascript and Typescript.",
   "main": "index.js",
-  "keywords": [],
+  "keywords": ["web3"],
   "author": "lucho.bio.link",
   "license": "MIT",
+  "homepage": "https://github.com/lcnvdl/metamascara#readme",
   "scripts": {
     "start": "npm run watch",
     "build": "npm run build-dev && npm run build-prod",
-    "clean": "rm dist/bundle.js",
+    "clean": "rm lib/bundle.js",
     "build-dev": "webpack --mode development",
     "watch": "webpack --mode development --watch",
     "build-prod": "cross-env NODE_ENV=production webpack --mode production",
     "test": "mocha",
     "lint": "eslint --ext ts src",
     "lint:fix": "eslint --ext ts --fix src"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "bugs": {
+    "url": "https://github.com/lcnvdl/metamascara/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcnvdl/metamascara.git"
   },
   "dependencies": {
     "bignumber.js": "^9.0.2"

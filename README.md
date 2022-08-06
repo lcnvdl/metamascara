@@ -4,6 +4,16 @@
 
 ![Build Status](https://github.com/lcnvdl/metamascara/actions/workflows/ci.yml/badge.svg) ![Known Vulnerabilities](https://snyk.io/test/github/lcnvdl/metamascara/badge.svg)
 
+## Installation
+Node
+```
+npm i --save mmascara
+```
+
+CDN
+```
+<script src="https://unpkg.com/mmascara/lib/metamascara.min.js"></script>
+```
 
 ## Demo
 [MetaMascara Demo](https://raw.githack.com/lcnvdl/metamascara/main/example/index.html)

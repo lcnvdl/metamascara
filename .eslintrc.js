@@ -44,7 +44,7 @@ module.exports = {
   },
   ignorePatterns: [
     'webpack.config.js',
-    'dist/*',
+    'lib/*',
     'node_modules/*',
     'example/*',
     'src/migrations/*.ts'
