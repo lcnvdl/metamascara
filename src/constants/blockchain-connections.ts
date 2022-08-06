@@ -1,4 +1,4 @@
-import { IAddNetworkInfo } from "../interfaces/add-network-info.interface";
+import { IAddNetworkInfo } from '../interfaces/add-network-info.interface';
 
 export const rinkebyAddNetworkInfo: IAddNetworkInfo = {
   chainId: '0x4',

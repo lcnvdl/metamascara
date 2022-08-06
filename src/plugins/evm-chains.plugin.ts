@@ -1,5 +1,5 @@
-import { IBlockchainInfo } from "../interfaces/blockchain-info.interface";
-import { IBlockchainListPlugin } from "../interfaces/plugins/blockchain-list.plugin.interface";
+import { IBlockchainInfo } from '../interfaces/blockchain-info.interface';
+import { IBlockchainListPlugin } from '../interfaces/plugins/blockchain-list.plugin.interface';
 
 interface IChainData {
   name: string;
@@ -28,8 +28,8 @@ export class EvmChainsPlugin implements IBlockchainListPlugin {
     this.getAllChains = getAllChains;
   }
 
-  getPluginType(): "blockchain-list" {
-    return "blockchain-list";
+  getPluginType(): 'blockchain-list' {
+    return 'blockchain-list';
   }
 
   getBlockchains(): IBlockchainInfo[] {

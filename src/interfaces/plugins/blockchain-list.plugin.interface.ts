@@ -1,4 +1,4 @@
-import { IBlockchainInfo } from "../blockchain-info.interface";
+import { IBlockchainInfo } from '../blockchain-info.interface';
 
 export interface IBlockchainListPlugin {
   getPluginType(): 'blockchain-list';

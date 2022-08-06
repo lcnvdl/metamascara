@@ -1,8 +1,8 @@
-import { IAddNetworkInfo } from "../interfaces/add-network-info.interface";
-import { BigNumberFactory } from "../factories/big-number-factory";
-import { IMetamascaraPlugin } from "../interfaces/plugins/metamascara-plugin.interface";
-import { IBlockchainInfo } from "../interfaces/blockchain-info.interface";
-import { IBlockchainListPlugin } from "../interfaces/plugins/blockchain-list.plugin.interface";
+import { IAddNetworkInfo } from '../interfaces/add-network-info.interface';
+import { BigNumberFactory } from '../factories/big-number-factory';
+import { IMetamascaraPlugin } from '../interfaces/plugins/metamascara-plugin.interface';
+import { IBlockchainInfo } from '../interfaces/blockchain-info.interface';
+import { IBlockchainListPlugin } from '../interfaces/plugins/blockchain-list.plugin.interface';
 
 export class MetaMascara {
   private accounts: string[] | null = null;
@@ -38,7 +38,7 @@ export class MetaMascara {
   get networkName(): string {
     const info = this._blockchains[this._networkId];
     if (!info) {
-      return "Unknown";
+      return 'Unknown';
     }
 
     return info.name;
@@ -101,7 +101,7 @@ export class MetaMascara {
   }
 
   getContract(address: string, abi: any): any {
-    if (!address || address === "-") {
+    if (!address || address === '-') {
       throw new Error('Wrong contract address: ' + address);
     }
 

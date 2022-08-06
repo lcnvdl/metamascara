@@ -1,10 +1,10 @@
-import { blockchains } from "../constants/blockchains";
-import { IBlockchainInfo } from "../interfaces/blockchain-info.interface";
-import { IBlockchainListPlugin } from "../interfaces/plugins/blockchain-list.plugin.interface";
+import { blockchains } from '../constants/blockchains';
+import { IBlockchainInfo } from '../interfaces/blockchain-info.interface';
+import { IBlockchainListPlugin } from '../interfaces/plugins/blockchain-list.plugin.interface';
 
 export class LocalBlockchainsPlugin implements IBlockchainListPlugin {
-  getPluginType(): "blockchain-list" {
-    return "blockchain-list";
+  getPluginType(): 'blockchain-list' {
+    return 'blockchain-list';
   }
 
   getBlockchains(): IBlockchainInfo[] {

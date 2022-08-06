@@ -1,8 +1,9 @@
-import { MetaMascara } from "../classes/metamascara";
-import { LocalBlockchainsPlugin } from "../plugins/local-blockchains.plugin";
-import { IMetamascaraPlugin } from "../interfaces/plugins/metamascara-plugin.interface";
+import { MetaMascara } from '../classes/metamascara';
+import { LocalBlockchainsPlugin } from '../plugins/local-blockchains.plugin';
+import { IMetamascaraPlugin } from '../interfaces/plugins/metamascara-plugin.interface';
 
 export class MetaMascaraFactory {
+  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   public static defaultPlugins = [
     new LocalBlockchainsPlugin(),
   ];
@@ -19,7 +20,7 @@ export class MetaMascaraFactory {
   }
 
   static newInstance(detectEthereumProvider?: () => Promise<any>, web3Factory?: (provider: any) => any) {
-    let providerDetector = detectEthereumProvider || (window as any).detectEthereumProvider;
+    const providerDetector = detectEthereumProvider || (window as any).detectEthereumProvider;
     if (!providerDetector) {
       throw new Error('Could not detect Ethereum provider. Please provide a detectEthereumProvider function.');
     }
