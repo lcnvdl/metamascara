@@ -22,7 +22,7 @@ function metamascaraExample2() {
     addNetworkBtn.addClass("disabled").attr("disabled", true);
   });
 
-  addNetworkBtn.on("click", function (ev) {
+  addNetworkBtn.on("click", async function (ev) {
     ev.preventDefault();
     if (addNetworkBtn.hasClass("disabled")) {
       return;
@@ -33,7 +33,15 @@ function metamascaraExample2() {
       return;
     }
 
-    window.metamascara.addNetwork(chain);
+    const result = await window.metamascara.addNetwork(chain);
+
+    if (!result) {
+      alert("Network already selected. Please select another blockchain.");
+    }
+    else {
+      //  Set the check for the example
+      setExampleCheckStatus(2, true);
+    }
   });
 }
 

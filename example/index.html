@@ -6,36 +6,21 @@
     <link rel="icon" type="image/png" href="./img/favicon.png" />
 
     <meta charset="utf-8">
+
+    <!-- Some styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
 
     <!-- Important: web3 and detect provider -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0-rc.0/web3.min.js" integrity="sha512-/PTXSvaFzmO4So7Ghyq+DEZOz0sNLU4v1DP4gMOfY3kFu9L/IKoqSHZ6lNl3ZoZ7wT20io3vu/U4IchGcGIhfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
 
-    <!-- Only for example (jquery,  bootstrap, icons, etc) -->
+    <!-- Only for the example (jquery,  bootstrap, icons, etc) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <style>
-      ion-icon {
-        font-size: 1.5em;
-      }
-      pre {
-        font-family: monospace;
-        font-size: 0.8em;
-        background-color: #f5f5f5;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        box-shadow: 0 0 5px #ccc;
-        padding: 5px 20px 5px 20px;
-        max-width: 600px;
-      }
-      input,select {
-        max-width: 300px;
-      }
-    </style>
   </head>
   <body>
     <div class="container py-4">
@@ -43,7 +28,10 @@
         <div class="col-12">
           <h1>Metamascara Example</h1>
           <p>Open-source Object-oriented Web3 library.</p>
+          <p>It's 100% compatible with vanilla javascript (like this example), typescript (angular), and modern javascript (react / vue).</p>
           <p>Let us know if you are using it. We can add your project to our list.</p>
+
+          <div id="keep-in-touch_top"></div>
         
           <form id="form-main">
             <div id="example-1" class="p-4 me-4">
@@ -61,7 +49,7 @@ if (isConnected) {
             </div>
 
             <div id="example-2" class="p-4 me-4">
-              <h3>Example 2. Add a network</h3>
+              <h3>Example 2. Add and/or select a network</h3>
               <pre>const { MetaMascaraFactory, blockchainConnections } = mmascara;
 const instance = MetaMascaraFactory.newInstance();
 const isConnected = await instance.connect();
@@ -73,16 +61,29 @@ if (isConnected) {
               <select id="network-select" class="form-control mb-2"></select>
               <button id="add-network" class="btn btn-warning disabled" disabled>Add a Network</button>
             </div>
+
+            <div id="example-3" class="p-4 me-4">
+              <h3>Example 3. Get ETH balance</h3>
+              <pre>const balance = await instance.getBalance();</pre>
+              <button id="get-balance" class="btn btn-warning disabled" disabled>Get Balance</button>
+            </div>
+
+            <div id="example-4" class="p-4 me-4">
+              <h3>Example 4. Sign a text</h3>
+              <pre>const signature = await instance.sign('Hi! You are signing this text.');</pre>
+              <button id="sign" class="btn btn-warning disabled" disabled>Sign</button>
+            </div>
             
           </form>
         </div>
       </div>
 
-      <div class="row mt-4">
-        <div class="col-12 pb-2">
+      <div id="keep-in-touch" class="row mt-4">
+        <div class="col-12"><hr></div>
+        <div class="col-12 pb-2 text-center">
           Keep in touch with us on:
         </div>
-        <div class="col-12 d-flex">
+        <div class="col-12 d-flex align-items-center justify-content-center">
           <a href="https://github.com/lcnvdl" class="btn btn-dark d-flex justify-content-center align-items-center mr-2" target="_blank">
             <ion-icon name="logo-github"></ion-icon>
           </a>
@@ -96,11 +97,17 @@ if (isConnected) {
             <ion-icon name="logo-linkedin"></ion-icon>
           </a>
         </div>
+        <div class="col-12"><hr></div>
       </div>
     </div>
 
     <script src="../lib/metamascara.js"></script>
     <script src="./js/example-1.js"></script>
     <script src="./js/example-2.js"></script>
+    <script src="./js/example-3.js"></script>
+    <script src="./js/example-4.js"></script>
+    
+    <!-- Ignore this script -->
+    <script src="./js/index.js"></script>
   </body>
 </html>

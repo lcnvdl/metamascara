@@ -17,6 +17,9 @@ function metamascaraExample1() {
         networkTitle.text(`Connected to: ${window.metamascara.networkName}.`);
 
         $("body").trigger("web3-connected");
+
+        //  Set the check for the example
+        setExampleCheckStatus(1, true);
       }
       else {
         connectBtn.attr("disabled", false);

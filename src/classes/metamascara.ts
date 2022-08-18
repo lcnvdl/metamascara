@@ -4,12 +4,13 @@ import { IMetamascaraPlugin } from '../interfaces/plugins/metamascara-plugin.int
 import { IBlockchainInfo } from '../interfaces/blockchain-info.interface';
 import { IBlockchainListPlugin } from '../interfaces/plugins/blockchain-list.plugin.interface';
 import { IMetaMascara } from '../interfaces/metamascara.interface';
+import { IBigNumber } from '../interfaces/bignumber.interface';
 
 export class MetaMascara implements IMetaMascara {
-  private accounts: string[] | null = null;
   private selectedAccount: string | null = null;
   private web3: any = null;
   private provider: any = null;
+  private _accounts: string[] | null = null;
   private _networkId = 0;
   private _blockchains: Record<number, IBlockchainInfo> = {};
 
@@ -24,8 +25,12 @@ export class MetaMascara implements IMetaMascara {
     }
   }
 
-  get isConnected() {
+  get isConnected(): boolean {
     return !!this.selectedAccount;
+  }
+
+  get accounts(): string[] {
+    return [...(this._accounts || [])];
   }
 
   get address(): string | null {
@@ -67,7 +72,7 @@ export class MetaMascara implements IMetaMascara {
     this.provider = provider;
     this.web3 = this.web3Factory(provider);
     this._networkId = await this.web3.eth.net.getId();
-    this.accounts = accounts;
+    this._accounts = accounts;
     this.selectedAccount = accounts[0];
 
     return true;
@@ -76,7 +81,7 @@ export class MetaMascara implements IMetaMascara {
   async addNetwork(info: IAddNetworkInfo) {
     const numericChainId = parseInt(info.chainId, 16);
     if (this.networkId === numericChainId) {
-      return true;
+      return false;
     }
 
     try {
@@ -96,6 +101,23 @@ export class MetaMascara implements IMetaMascara {
     return true;
   }
 
+  sign(textToSign: string, address?: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.web3.eth.personal.sign(
+        this.web3.utils.fromUtf8(`${textToSign}`),
+        address || this.address,
+        (err: any, signature: any) => {
+          if (err) {
+            reject(err);
+          }
+          else {
+            resolve(signature);
+          }
+        }
+      );
+    });
+  }
+
   disconnect() {
     this.disposeWeb3();
     this.disposeProvider();
@@ -110,13 +132,13 @@ export class MetaMascara implements IMetaMascara {
     return contract;
   }
 
-  async getBnbBalance(address: string) {
-    const ethBalance = await this.web3.eth.getBalance(address);
+  async getBalance(address?: string): Promise<IBigNumber> {
+    const ethBalance = await this.web3.eth.getBalance(address || this.address);
     return BigNumberFactory.newInstance(ethBalance);
   }
 
-  async getNonce(addr: string) {
-    const count = await this.web3.eth.getTransactionCount(addr);
+  async getNonce(address: string): Promise<number> {
+    const count = await this.web3.eth.getTransactionCount(address);
     return +count;
   }
 

@@ -1,4 +1,4 @@
-import BigNumber from 'bignumber.js';
+import { IBigNumber } from '../interfaces/bignumber.interface';
 export declare class BigNumberFactory {
-    static newInstance(value: string | number, base?: number): BigNumber;
+    static newInstance(value: string | number, base?: number): IBigNumber;
 }
