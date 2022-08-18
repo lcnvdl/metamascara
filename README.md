@@ -14,7 +14,7 @@
 
 ## Installation
 
-CDN
+### Option 1: CDN (for Vanilla Javascript).
 Import the script
 ```html
 <script src="https://unpkg.com/mmascara/lib/metamascara.min.js"></script>
@@ -25,13 +25,13 @@ Then
 const { MetaMascaraFactory } = mmascara;
 ```
 
-ANGULAR
+### Option 2: NPM (for Angular or React)
 Node
 ```bash
 npm i --save mmascara
 ```
 
-Then
+Then _(Angular example)_
 ```typescript
 import { MetaMascaraFactory } from 'mmascara';
 ```
